@@ -1,12 +1,12 @@
-
-let list = document.getElementById("list");
+let bodyTable = document.getElementById("bodyTable");
 let btn = document.getElementById("button");
+let form = document.getElementById("form");
 
 let users = [];
 
 
 btn.addEventListener('click', (e) =>{
-  
+
     e.preventDefault();
     let name = document.getElementById("name").value;
     let lastName = document.getElementById("lastName").value;
@@ -22,8 +22,10 @@ btn.addEventListener('click', (e) =>{
     } else {
       registerUser(name, lastName, phone, adress, observations);
     }
+    form.reset();
+});
 
-})
+
 let registerUser = (Name, LastName, Phone, Adress, Observations) => {
     let register = {
         name: Name,
@@ -35,34 +37,34 @@ let registerUser = (Name, LastName, Phone, Adress, Observations) => {
     users.push(register);
     saveData(users);  
 }
+
  let saveData = () => {
     localStorage.setItem('user', JSON.stringify(users))
 }
+
  let showMessage = (mens) => {
-    const Message = document.createElement('div');
-    Message.setAttribute('class', 'error');
-    Message.textContent = mens;
-    form.appendChild(Message);
+    const message = document.createElement('div');
+    message.setAttribute('class', 'error');
+    message.textContent = mens;
+    form.appendChild(message);
     setTimeout( () => {
-        Message.remove();
+        message.remove();
     }, 5000);
 }
 
 
 let listData = () => {
-    list.innerHTML = "";
+    bodyTable.innerHTML = "";
     users = JSON.parse(localStorage.getItem("user"));
     users.forEach(element => {
         const {  name, lastName, phone, adress, observations} = element;
-        list.innerHTML += `   <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">${name}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">${lastName}</h6>
-          <h6 class="card-subtitle mb-2 text-muted">${phone}</h6>
-          <h6 class="card-subtitle mb-2 text-muted">${adress}</h6>
-          <h6 class="card-subtitle mb-2 text-muted">${observations}</h6>
-        </div>
-    </div>`
+        bodyTable.innerHTML += ` <tr>  
+            <td>${name}</td>
+            <td>${lastName}</td>
+            <td>${phone}</td>
+            <td>${adress}</td>
+            <td>${observations}</td>
+        </tr>`
     });
 }
 document.addEventListener('DOMContentLoaded',listData)

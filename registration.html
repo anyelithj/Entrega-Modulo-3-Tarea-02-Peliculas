@@ -20,7 +20,7 @@
             </ul>
           </nav>
     </div>
-    <section>
+    <section class="main">
         <div class="container__form">
             <form action="" id="form">
                 <div class="title">
@@ -44,13 +44,25 @@
                 </div>
                 <div>
                     <label for="observations" class="label">Observaciones:</label>
-                    <textarea name="message" id="observations" class="textarea" required="" id="" cols="30" rows="10"></textarea>
+                    <textarea name="message" id="observations" class="textarea" required="" id="" cols="10" rows="3"></textarea>
                 </div>
                 <button type="submit" id="button" class="button">Enviar</button>
             </form>
-            <div id="list">
-         
-            </div>
+        </div>
+        <div id="list" class="list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody id="bodyTable">
+                </tbody>
+            </table>
         </div>
         <script src="js/registration.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
