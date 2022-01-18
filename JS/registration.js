@@ -23,6 +23,7 @@ btn.addEventListener('click', (e) =>{
       registerUser(name, lastName, phone, adress, observations);
     }
     form.reset();
+    listData();
 });
 
 
@@ -67,4 +68,4 @@ let listData = () => {
         </tr>`
     });
 }
-document.addEventListener('DOMContentLoaded',listData)
+
