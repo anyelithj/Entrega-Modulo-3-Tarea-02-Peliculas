@@ -56,8 +56,8 @@ let registerUser = (Name, LastName, Phone, Adress, Observations) => {
 let listData = () => {
     bodyTable.innerHTML = "";
     users = JSON.parse(localStorage.getItem("user"));
-    users.forEach(element => {
-        const {  name, lastName, phone, adress, observations} = element;
+    users.forEach(element=> {
+        const {name, lastName, phone, adress, observations} = element;
         bodyTable.innerHTML += ` <tr>  
             <td>${name}</td>
             <td>${lastName}</td>
